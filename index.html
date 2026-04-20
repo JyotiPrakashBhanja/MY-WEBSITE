@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jyotiprakash | Void Architect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@100;300;900&family=Syncopate:wght@700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* 1. AUTOMATIC CINEMA INTRO */
+        #cinema-intro {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 10000; display: flex; justify-content: center; align-items: center;
+            pointer-events: none; /* Allows user to scroll even during fade */
+            transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .intro-title {
+            font-family: 'Cinzel', serif; letter-spacing: 25px; color: #fff; font-size: 1.5rem;
+            animation: introFade 4s forwards; opacity: 0;
+        }
+        @keyframes introFade {
+            0% { opacity: 0; letter-spacing: 30px; filter: blur(10px); }
+            50% { opacity: 1; letter-spacing: 20px; filter: blur(0px); }
+            100% { opacity: 0; letter-spacing: 15px; filter: blur(5px); }
+        }
+
+        /* NAVIGATION */
+        nav { position: fixed; top: 40px; width: 100%; padding: 0 60px; display: flex; justify-content: space-between; z-index: 100; opacity: 0; animation: fadeIn 2s forwards 3.5s; }
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 0.8rem; letter-spacing: 5px; color: #ff0000; }
+        
+        section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 10; opacity: 0; animation: fadeIn 2s forwards 3.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* HERO & QUOTE */
+        .hero h1 { font-size: 9vw; font-weight: 900; letter-spacing: -5px; text-transform: uppercase; line-height: 0.8; }
+        .hero span { color: #0a0000; text-shadow: 0 0 60px rgba(255,0,0,0.4); }
+        .quote { font-family: 'Cinzel', serif; font-size: 1rem; color: #300; margin-top: 30px; letter-spacing: 5px; font-style: italic; }
+
+        .skill-list { display: flex; gap: 40px; margin-top: 50px; }
+        .skill-item { font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 0.8rem; color: #ff0000; }
+
+        /* ABOUT CONTENT */
+        .about-container { max-width: 850px; }
+        .about-p { font-family: 'Cinzel', serif; font-size: 1.1rem; line-height: 2.3; color: #666; margin-bottom: 40px; }
+        .about-p b { color: #fff; font-weight: 400; }
+
+        /* PROJECT GRID */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .project-card { padding: 40px; border: 1px solid #110000; background: rgba(5,0,0,0.4); transition: 0.8s; }
+        .project-card:hover { border-color: #ff0000; background: #080000; }
+        .project-card .tag { font-size: 0.6rem; color: #ff0000; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .project-card h3 { font-family: 'Cinzel', serif; margin-bottom: 15px; font-size: 0.9rem; letter-spacing: 2px; }
+
+        /* CONTACT */
+        .contact-form { max-width: 500px; }
+        input, textarea { width: 100%; padding: 20px; background: transparent; border: none; border-bottom: 1px solid #200; color: #fff; margin-bottom: 20px; outline: none; transition: 0.5s; }
+        input:focus { border-bottom: 1px solid #ff0000; background: rgba(255,0,0,0.01); }
+        .submit-btn { font-family: 'Cinzel', serif; background: none; border: 1px solid #ff0000; color: #ff0000; padding: 15px 40px; letter-spacing: 5px; cursor: pointer; transition: 0.4s; }
+        .submit-btn:hover { background: #ff0000; color: #000; }
+
+        canvas { position: fixed; top: 0; left: 0; z-index: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="cinema-intro">
+        <div class="intro-title"> WELCOME TO
+            MY WORLD</div>
+    </div>
+
+    <nav>
+        <div class="logo">JYOTI<span>PRAKASH</span></div>
+        <div style="font-size: 0.5rem; letter-spacing: 4px; opacity: 0.2;">VIRTUAL_SESSION_2.6</div>
+    </nav>
+
+    <section class="hero">
+        <p style="font-family: 'Cinzel'; color: #ff0000; letter-spacing: 12px; margin-bottom: 10px;">INTRODUCING</p>
+        <h1>DIGITAL<br><span>IDENTITY</span>.</h1>
+        <p class="quote">"In the shadows of code, the truth is compiled."</p>
+        
+        <div class="skill-list">
+            <div class="skill-item">CYBERSECURITY</div>
+            <div class="skill-item">WEB_DEV</div>
+            <div class="skill-item">GAMER</div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <p style="color: #ff0000; font-family: 'Cinzel'; letter-spacing: 10px; margin-bottom: 30px;">// THE ORIGIN</p>
+            
+            <p class="about-p">
+                I am <b>Jyotiprakash Bhanja</b>, a digital strategist operating within the silent corridors of <b>Cybersecurity</b> and <b>Full-Stack Development</b>. I believe that every system is a living organism, and my mission is to ensure its heartbeat remains secure, efficient, and unbreakable. By blending the precision of <b>Python</b> with the raw power of <b>C++</b>, I construct digital fortresses that stand against the unseen.
+            </p>
+            
+            <p class="about-p">
+                My journey is fueled by a dual obsession: the logic of the machine and the immersion of the <b>Virtual World</b>. As a <b>Gamer</b> and developer, I don’t just play in these environments; I deconstruct them. I study the engine mechanics and the behavioral patterns of code to understand how to build experiences that are both visually haunting and technically flawless.
+            </p>
+
+            <p class="about-p">
+                Currently, I am focused on the evolution of <b>Atmospheric Architectures</b>. Whether I am automating complex data streams or hardening a network against intruders, I treat every project as a permanent record of my philosophy. My goal is to bridge the gap between <b>High-Level Programming</b> and the dark, aesthetic beauty of modern web design.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <p style="color: #ff0000; font-family: 'Cinzel'; letter-spacing: 10px; margin-bottom: 40px;">// THE VAULT</p>
+        <div class="project-grid">
+            <div class="project-card">
+                <span class="tag">Past Entry</span>
+                <h3>SHADOW_PROTOCOL</h3>
+                <p style="font-size: 0.75rem; opacity: 0.3;">Python-based encryption for anonymous data transmission.</p>
+            </div>
+            <div class="project-card">
+                <span class="tag">Active Development</span>
+                <h3>VOID_ENGINE_V1</h3>
+                <p style="font-size: 0.75rem; opacity: 0.3;">C++ environmental logic focusing on volumetric shadow physics.</p>
+            </div>
+            <div class="project-card">
+                <span class="tag">Upcoming</span>
+                <h3>CYBER_SENTINEL</h3>
+                <p style="font-size: 0.75rem; opacity: 0.3;">Automated vulnerability scanner for deep-level system leaks.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <p style="color: #ff0000; font-family: 'Cinzel'; letter-spacing: 10px; margin-bottom: 40px;">// TRANSMIT</p>
+        <div class="contact-form">
+            <input type="text" placeholder="IDENTITY">
+            <input type="email" placeholder="COMMS_LINE">
+            <textarea placeholder="DATA_MESSAGE" rows="4"></textarea>
+            <button class="submit-btn">SEND</button>
+        </div>
+    </section>
+
+    <script type="importmap">
+        { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        // AUTOMATIC INTRO LOGIC
+        window.addEventListener('load', () => {
+            const intro = document.getElementById('cinema-intro');
+            setTimeout(() => {
+                intro.style.opacity = '0';
+                setTimeout(() => intro.style.display = 'none', 3000);
+            }, 3500); // Intro lasts 3.5 seconds
+        });
+
+        // 3D VOID BACKGROUND
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BufferGeometry();
+        const vertices = [];
+        for (let i = 0; i < 4000; i++) {
+            vertices.push(THREE.MathUtils.randFloatSpread(30));
+            vertices.push(THREE.MathUtils.randFloatSpread(30));
+            vertices.push(THREE.MathUtils.randFloatSpread(30));
+        }
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+        const material = new THREE.PointsMaterial({ color: 0x110000, size: 0.012, transparent: true, opacity: 0.6 });
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+
+        camera.position.z = 10;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            points.rotation.y += 0.0003;
+            points.position.x = Math.sin(Date.now() * 0.0001) * 1;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
